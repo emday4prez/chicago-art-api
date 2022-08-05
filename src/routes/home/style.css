@@ -1,0 +1,25 @@
+.home {
+	padding: 56px 20px;
+	min-height: 100%;
+	width: 100%;
+}
+
+.listElement {
+	margin:2rem;
+}
+
+.button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin:2rem;
+	border: 2px solid rebeccapurple;
+	width: 120px;
+	padding: 1rem;
+}
+.button:hover {
+	background-color: rebeccapurple;
+	color: white;
+	cursor: pointer;
+}

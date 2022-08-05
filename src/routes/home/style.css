@@ -2,6 +2,7 @@
 	padding: 56px 20px;
 	min-height: 100%;
 	width: 100%;
+
 }
 
 .listElement {
@@ -22,4 +23,30 @@
 	background-color: rebeccapurple;
 	color: white;
 	cursor: pointer;
+}
+.buttons {
+	width:200px;
+	display: flex;
+}
+.title{
+	font-size: .85rem;
+	font-weight: light;
+	
+}
+
+.date{
+	font-size: .7rem;
+	font-weight: light;
+	
+}
+
+.loading{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30vh;
+	margin-bottom: 1rem;
+	color: rebeccapurple;
+	font-size: 2rem;
+	font-weight: 600;
 }

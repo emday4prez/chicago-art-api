@@ -71,9 +71,13 @@ const Home = () => {
             data: [],
         }
     )
+
     const listOfArt = data.data
     const pagination = data.pagination
+
     console.log('data.pagination:', pagination)
+    console.log('listofArt: ', listOfArt)
+
     // const handlePageChange = (e) => {
     //     setCurrentPage(Number(e.target.textContent))
     // }
@@ -86,7 +90,7 @@ const Home = () => {
 
     return (
         <div class={style.home}>
-            <h1>Home</h1>
+            <h1>Art Institute of Chicago API</h1>
             <form
                 onSubmit={(event) => {
                     doFetch(
@@ -104,28 +108,31 @@ const Home = () => {
                 <button type="submit">Search</button>
             </form>
 
-            <div onClick={() => doFetch(pagination.prev_url)}>
-                <p class={style.button}>previous</p>
-            </div>
-
-            <div onClick={() => doFetch(pagination.next_url)}>
-                <p class={style.button}>next page</p>
-            </div>
-
             {isError && <div>Something went wrong ...</div>}
             {isLoading ? (
-                <div>Loading ...</div>
+                <div class={style.loading}>Loading art...</div>
             ) : (
                 <div class={style.listGroup}>
                     {listOfArt.map((piece) => {
                         return (
                             <div class={style.listElement} key={piece.id}>
                                 <div>{piece.artist_display}</div>
-                                <div>{piece.title}</div>
-                                <div>{piece.id}</div>
+                                <div class={style.title}>{piece.title}</div>
+                                <div class={style.date}>
+                                    {piece.date_display}
+                                </div>
                             </div>
                         )
                     })}
+                    <div class={style.buttons}>
+                        <div onClick={() => doFetch(pagination.prev_url)}>
+                            <p class={style.button}>previous</p>
+                        </div>
+                        {/* <p>{current_page}</p> */}
+                        <div onClick={() => doFetch(pagination.next_url)}>
+                            <p class={style.button}>next page</p>
+                        </div>
+                    </div>
                 </div>
             )}
         </div>
